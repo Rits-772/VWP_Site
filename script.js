@@ -229,8 +229,11 @@ function showRoadmap() {
             const viewHeight = window.innerHeight;
             
             // Calculate how much of the roadmap is scrolled through
-            // 0 when top is at bottom of viewport, 1 when bottom is at top
-            let scrollPercentage = (viewHeight - rect.top) / (rect.height + viewHeight);
+            // The drawing starts after the header section (approx 500px down)
+            const scrollStartOffset = rect.top + 450; 
+            const scrollRange = rect.height - 450;
+            
+            let scrollPercentage = (viewHeight - scrollStartOffset) / (scrollRange + viewHeight);
             
             // Clamp between 0 and 1
             scrollPercentage = Math.max(0, Math.min(1, scrollPercentage));
