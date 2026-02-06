@@ -208,12 +208,38 @@ function openEnvelope() {
 // Roadmap Animation with milestones
 function showRoadmap() {
     setTimeout(() => {
-        const milestones = document.querySelectorAll('.milestone');
+        const path = document.getElementById('scroll-path');
+        if (!path) return;
+
+        const pathLength = path.getTotalLength();
         
-        // Milestones appear with staggered delay (already animated via CSS)
+        // Setup path for scroll animation
+        path.style.strokeDasharray = pathLength + ' ' + pathLength;
+        path.style.strokeDashoffset = pathLength;
+
         // Start countdown timers
         startCountdowns();
         
+        // Scroll listener for path drawing
+        window.addEventListener('scroll', () => {
+            const roadmapSection = document.getElementById('roadmap-phase');
+            if (roadmapSection.classList.contains('hidden')) return;
+
+            const rect = roadmapSection.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
+            
+            // Calculate how much of the roadmap is scrolled through
+            // 0 when top is at bottom of viewport, 1 when bottom is at top
+            let scrollPercentage = (viewHeight - rect.top) / (rect.height + viewHeight);
+            
+            // Clamp between 0 and 1
+            scrollPercentage = Math.max(0, Math.min(1, scrollPercentage));
+            
+            // Draw path (offset goes from pathLength to 0)
+            const drawLength = pathLength * scrollPercentage;
+            path.style.strokeDashoffset = pathLength - drawLength;
+        });
+
     }, 300);
 }
 
