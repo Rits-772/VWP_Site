@@ -1,0 +1,662 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffa8db 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animated Starry Background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: linear-gradient(135deg, #2d0a1f 0%, #4a1942 50%, #2d0a1f 100%);
+}
+
+.stars,
+.stars2,
+.stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.stars {
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 60px 70px, #fff, transparent),
+        radial-gradient(1px 1px at 50px 50px, #ddd, transparent),
+        radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+        radial-gradient(2px 2px at 90px 10px, #eee, transparent);
+    background-size: 200px 200px;
+    animation: twinkle 3s infinite;
+}
+
+.stars2 {
+    background-image: 
+        radial-gradient(1px 1px at 100px 120px, #fff, transparent),
+        radial-gradient(1px 1px at 150px 60px, #ddd, transparent),
+        radial-gradient(2px 2px at 40px 90px, #eee, transparent);
+    background-size: 300px 300px;
+    animation: twinkle 5s infinite;
+}
+
+.stars3 {
+    background-image: 
+        radial-gradient(1px 1px at 180px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 220px 140px, #eee, transparent);
+    background-size: 400px 400px;
+    animation: twinkle 7s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 700px;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+/* Steps */
+.step {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px) rotateX(-10deg);
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+}
+
+.step.active {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    pointer-events: all;
+}
+
+.step.exit {
+    opacity: 0;
+    transform: translateY(-50px) rotateX(10deg);
+}
+
+/* Content */
+.content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 60px 40px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 0 40px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* GIF Container */
+.gif-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    animation: gif-bounce 2s ease-in-out infinite;
+}
+
+.step-gif,
+.tenor-gif-embed {
+    width: 200px !important;
+    height: 200px !important;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 40px rgba(255, 107, 157, 0.4);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.tenor-gif-embed iframe {
+    border-radius: 20px !important;
+}
+
+.step-gif:hover {
+    transform: scale(1.05);
+}
+
+@keyframes gif-bounce {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Typography */
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.subtitle,
+.description {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    animation: glitch 5s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-before 3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translate(-2px, -2px);
+    opacity: 0.8;
+}
+
+.glitch::after {
+    animation: glitch-after 2s infinite;
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+    transform: translate(2px, 2px);
+    opacity: 0.8;
+}
+
+@keyframes glitch {
+    0%, 90%, 100% { transform: translate(0); }
+    92% { transform: translate(-2px, 2px); }
+    94% { transform: translate(2px, -2px); }
+    96% { transform: translate(-2px, -2px); }
+    98% { transform: translate(2px, 2px); }
+}
+
+@keyframes glitch-before {
+    0%, 95%, 100% { transform: translate(0); }
+    96% { transform: translate(-5px, 0); }
+    97% { transform: translate(5px, 0); }
+}
+
+@keyframes glitch-after {
+    0%, 95%, 100% { transform: translate(0); }
+    96% { transform: translate(5px, 0); }
+    97% { transform: translate(-5px, 0); }
+}
+
+/* Buttons */
+.btn {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+    border: none;
+    color: white;
+    padding: 18px 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+    font-family: 'Poppins', sans-serif;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.7);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #ffa8db 0%, #ff6b9d 100%);
+    box-shadow: 0 10px 30px rgba(255, 168, 219, 0.5);
+}
+
+.btn-secondary:hover {
+    box-shadow: 0 15px 40px rgba(255, 168, 219, 0.7);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* No Response Box */
+.no-response-box {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 168, 219, 0.5);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 25px 0;
+    animation: pulse-border 2s ease-in-out infinite;
+}
+
+.no-response-box p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.anyways {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #ffa8db !important;
+    margin-top: 20px !important;
+    font-style: italic;
+}
+
+@keyframes pulse-border {
+    0%, 100% {
+        border-color: rgba(255, 168, 219, 0.5);
+        box-shadow: 0 0 20px rgba(255, 168, 219, 0.3);
+    }
+    50% {
+        border-color: rgba(255, 107, 157, 0.8);
+        box-shadow: 0 0 30px rgba(255, 107, 157, 0.5);
+    }
+}
+
+/* Apology Content */
+.apology-content {
+    padding: 50px 40px;
+}
+
+.heart-container {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.heart {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 40px;
+    height: 64px;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);
+    border-radius: 40px 40px 0 0;
+}
+
+.heart::before {
+    left: 40px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    10%, 30% { transform: scale(1.1); }
+    20%, 40% { transform: scale(1); }
+}
+
+.apology-title {
+    font-size: 4rem;
+    background: linear-gradient(135deg, #ff6b9d, #ffa8db, #ff6b9d);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.apology-text {
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.apology-text p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.apology-text strong {
+    color: #ffa8db;
+    font-weight: 600;
+}
+
+.highlight {
+    font-size: 1.4rem !important;
+    font-weight: 600;
+    color: #ffa8db !important;
+    margin-top: 25px !important;
+}
+
+.final-message {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    margin-top: 30px !important;
+    color: #fff !important;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #ff6b9d 0%, #ffa8db 100%);
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+}
+
+.btn-yes:hover {
+    box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #c56b9d 0%, #d891b8 100%);
+    box-shadow: 0 10px 30px rgba(197, 107, 157, 0.5);
+}
+
+/* Final Content */
+.final-content {
+    padding: 80px 40px;
+}
+
+.celebration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #ff6b9d;
+    top: -10px;
+    animation: confetti-fall 3s linear infinite;
+}
+
+.confetti:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    background: #ff6b9d;
+}
+
+.confetti:nth-child(2) {
+    left: 30%;
+    animation-delay: 0.5s;
+    background: #ffa8db;
+}
+
+.confetti:nth-child(3) {
+    left: 50%;
+    animation-delay: 1s;
+    background: #667eea;
+}
+
+.confetti:nth-child(4) {
+    left: 70%;
+    animation-delay: 1.5s;
+    background: #764ba2;
+}
+
+.confetti:nth-child(5) {
+    left: 90%;
+    animation-delay: 2s;
+    background: #ff6b9d;
+}
+
+@keyframes confetti-fall {
+    0% {
+        top: -10px;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 100%;
+        transform: rotate(360deg);
+    }
+}
+
+.final-title {
+    font-size: 4.5rem;
+    margin-bottom: 30px;
+}
+
+.final-text {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.love-message {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 40px;
+    background: linear-gradient(135deg, #ff6b9d, #ffa8db, #ff6b9d);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease infinite;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 600px;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        max-width: none;
+        min-height: auto;
+    }
+
+    .content {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .subtitle,
+    .description {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .apology-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .final-title,
+    .apology-title {
+        font-size: 2.8rem;
+    }
+
+    .love-message {
+        font-size: 1.8rem;
+    }
+
+    .step-gif,
+    .tenor-gif-embed {
+        width: 180px !important;
+        height: 180px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 30px 15px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .subtitle,
+    .description {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .apology-title {
+        font-size: 2.22rem;
+    }
+
+    .love-message {
+        font-size: 1.4rem;
+    }
+
+    .step-gif,
+    .tenor-gif-embed {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    
+    .no-response-box {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-height: 600px) {
+    .container {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        align-items: flex-start;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .gif-container {
+        margin-bottom: 15px;
+    }
+    
+    .step-gif,
+    .tenor-gif-embed {
+        width: 120px !important;
+        height: 120px !important;
+    }
+    
+    h1, h2 {
+        margin-bottom: 10px;
+    }
+    
+    .subtitle, .description {
+        margin-bottom: 15px;
+    }
+}

@@ -111,141 +111,147 @@
         </div>
 
         <!-- Phase 4: Valentine's Week Roadmap -->
-        <div id="roadmap-phase" class="hidden">
-            <h1 style="margin-bottom: 30px;">Valentine's Week Countdown</h1>
-            <div class="roadmap-container">
-                <!-- Exact replica of reference image flowing path -->
-                <svg class="roadmap-curve" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 80 120 
-                             C 200 100, 350 110, 500 120
-                             C 650 130, 800 110, 920 140
-                             
-                             C 970 170, 980 220, 960 280
-                             C 940 340, 880 380, 800 400
-                             C 720 420, 600 430, 480 420
-                             C 360 410, 240 400, 140 420
-                             C 80 430, 40 460, 30 510
-                             
-                             C 25 560, 60 600, 140 630
-                             C 240 670, 380 690, 540 700
-                             C 700 710, 860 700, 940 720
-                             
-                             C 980 730, 990 760, 960 790" 
-                          stroke="#8B0000" 
-                          stroke-width="6" 
-                          fill="none" 
-                          stroke-linecap="round"
-                          class="roadmap-path-line"/>
+        <div id="roadmap-phase" class="hidden" style="position: relative; width: 100%; min-height: 100vh; padding: 40px 0;">
+            <h1 style="margin-bottom: 50px; position: relative; z-index: 10;">Valentine's Week Countdown</h1>
+            
+            <!-- Flowing Ribbon Background -->
+            <div class="absolute inset-0 pointer-events-none flex justify-center opacity-20" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden;">
+                <svg class="w-full max-w-4xl h-auto" fill="none" height="1500" viewBox="0 0 800 1500" width="800" xmlns="http://www.w3.org/2000/svg">
+                    <path class="ribbon-path" d="M400 0C400 100 700 100 700 200C700 350 100 350 100 500C100 650 700 650 700 800C700 950 100 950 100 1100C100 1250 400 1250 400 1500" 
+                          stroke="url(#ribbon-gradient)" 
+                          stroke-linecap="round" 
+                          stroke-width="50">
+                    </path>
+                    <defs>
+                        <linearGradient id="ribbon-gradient" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0%" stop-color="#fb7185"></stop>
+                            <stop offset="100%" stop-color="#e11d48"></stop>
+                        </linearGradient>
+                    </defs>
                 </svg>
+            </div>
+
+            <!-- Floating Decoration Petals -->
+            <div class="floating-petal" style="top: 15%; left: 5%; font-size: 2.5rem;">🌹</div>
+            <div class="floating-petal" style="top: 35%; right: 10%; font-size: 1.8rem; animation-delay: -1.5s;">🌸</div>
+            <div class="floating-petal" style="top: 65%; left: 15%; font-size: 2rem; animation-delay: -3.5s;">🌹</div>
+            <div class="floating-petal" style="bottom: 15%; right: 8%; font-size: 2.5rem; animation-delay: -2.5s;">💖</div>
+
+            <!-- Milestones Container -->
+            <div class="container mx-auto max-w-5xl relative" style="z-index: 10; padding: 0 20px; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; border: none; box-shadow: none; animation: none;">
                 
-                <!-- Rose Day - Top left on curve start -->
-                <div class="milestone" data-index="0" data-date="2026-02-07" style="left: 8%; top: 15%;">
-                    <div class="pole"></div>
-                    <div class="marker">
-                        <div class="marker-icon">🌹</div>
+                <div style="display: flex; flex-direction: column; gap: 4rem; width: 100%;">
+                    <!-- Rose Day - Right -->
+                    <div style="display: flex; justify-content: flex-end; width: 100%; padding-right: 5%;">
+                        <div class="milestone milestone-card glass-card" data-index="0" data-date="2026-02-07" style="padding: 1.5rem; border-radius: 20px; width: 100%; max-width: 350px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="color: #ff3366; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Feb 07</span>
+                                <div style="font-size: 2.2rem;">🌹</div>
+                            </div>
+                            <h3 style="font-family: 'Delius Swash Caps', cursive; font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Rose Day</h3>
+                            <p style="color: #ffe4e1; font-size: 0.95rem; margin-bottom: 1rem; opacity: 0.9;">Start the journey of love with a blooming gesture.</p>
+                            <div class="countdown" id="countdown-0" style="width: 100%; display: block; text-align: center;">Loading...</div>
+                        </div>
                     </div>
-                    <div class="milestone-content">
-                        <h3>Rose Day</h3>
-                        <p>Feb 7</p>
-                        <div class="countdown" id="countdown-0">Loading...</div>
+
+                    <!-- Propose Day - Left -->
+                    <div style="display: flex; justify-content: flex-start; width: 100%; padding-left: 5%;">
+                        <div class="milestone milestone-card glass-card" data-index="1" data-date="2026-02-08" style="padding: 1.5rem; border-radius: 20px; width: 100%; max-width: 350px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="color: #ff3366; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Feb 08</span>
+                                <div style="font-size: 2.2rem;">💍</div>
+                            </div>
+                            <h3 style="font-family: 'Delius Swash Caps', cursive; font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Propose Day</h3>
+                            <p style="color: #ffe4e1; font-size: 0.95rem; margin-bottom: 1rem; opacity: 0.9;">A day to voice the feelings of your heart.</p>
+                            <div class="countdown" id="countdown-1" style="width: 100%; display: block; text-align: center;">Loading...</div>
+                        </div>
+                    </div>
+
+                    <!-- Chocolate Day - Right -->
+                    <div style="display: flex; justify-content: flex-end; width: 100%; padding-right: 5%;">
+                        <div class="milestone milestone-card glass-card" data-index="2" data-date="2026-02-09" style="padding: 1.5rem; border-radius: 20px; width: 100%; max-width: 350px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="color: #ff3366; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Feb 09</span>
+                                <div style="font-size: 2.2rem;">🍫</div>
+                            </div>
+                            <h3 style="font-family: 'Delius Swash Caps', cursive; font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Chocolate Day</h3>
+                            <p style="color: #ffe4e1; font-size: 0.95rem; margin-bottom: 1rem; opacity: 0.9;">Sweeten your bond with delicious treats.</p>
+                            <div class="countdown" id="countdown-2" style="width: 100%; display: block; text-align: center;">Loading...</div>
+                        </div>
+                    </div>
+
+                    <!-- Teddy Day - Left -->
+                    <div style="display: flex; justify-content: flex-start; width: 100%; padding-left: 5%;">
+                        <div class="milestone milestone-card glass-card" data-index="3" data-date="2026-02-10" style="padding: 1.5rem; border-radius: 20px; width: 100%; max-width: 350px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="color: #ff3366; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Feb 10</span>
+                                <div style="font-size: 2.2rem;">🧸</div>
+                            </div>
+                            <h3 style="font-family: 'Delius Swash Caps', cursive; font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Teddy Day</h3>
+                            <p style="color: #ffe4e1; font-size: 0.95rem; margin-bottom: 1rem; opacity: 0.9;">Gift a soft companion to your special someone.</p>
+                            <div class="countdown" id="countdown-3" style="width: 100%; display: block; text-align: center;">Loading...</div>
+                        </div>
+                    </div>
+
+                    <!-- Promise Day - Right -->
+                    <div style="display: flex; justify-content: flex-end; width: 100%; padding-right: 5%;">
+                        <div class="milestone milestone-card glass-card" data-index="4" data-date="2026-02-11" style="padding: 1.5rem; border-radius: 20px; width: 100%; max-width: 350px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="color: #ff3366; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Feb 11</span>
+                                <div style="font-size: 2.2rem;">🤝</div>
+                            </div>
+                            <h3 style="font-family: 'Delius Swash Caps', cursive; font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Promise Day</h3>
+                            <p style="color: #ffe4e1; font-size: 0.95rem; margin-bottom: 1rem; opacity: 0.9;">Make commitments that last a lifetime.</p>
+                            <div class="countdown" id="countdown-4" style="width: 100%; display: block; text-align: center;">Loading...</div>
+                        </div>
+                    </div>
+
+                    <!-- Hug Day - Left -->
+                    <div style="display: flex; justify-content: flex-start; width: 100%; padding-left: 5%;">
+                        <div class="milestone milestone-card glass-card" data-index="5" data-date="2026-02-12" style="padding: 1.5rem; border-radius: 20px; width: 100%; max-width: 350px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="color: #ff3366; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Feb 12</span>
+                                <div style="font-size: 2.2rem;">🤗</div>
+                            </div>
+                            <h3 style="font-family: 'Delius Swash Caps', cursive; font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Hug Day</h3>
+                            <p style="color: #ffe4e1; font-size: 0.95rem; margin-bottom: 1rem; opacity: 0.9;">A warm embrace to show you care.</p>
+                            <div class="countdown" id="countdown-5" style="width: 100%; display: block; text-align: center;">Loading...</div>
+                        </div>
+                    </div>
+
+                    <!-- Kiss Day - Right -->
+                    <div style="display: flex; justify-content: flex-end; width: 100%; padding-right: 5%;">
+                        <div class="milestone milestone-card glass-card" data-index="6" data-date="2026-02-13" style="padding: 1.5rem; border-radius: 20px; width: 100%; max-width: 350px; text-align: left;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <span style="color: #ff3366; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 2px;">Feb 13</span>
+                                <div style="font-size: 2.2rem;">💋</div>
+                            </div>
+                            <h3 style="font-family: 'Delius Swash Caps', cursive; font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff;">Kiss Day</h3>
+                            <p style="color: #ffe4e1; font-size: 0.95rem; margin-bottom: 1rem; opacity: 0.9;">Seal your feelings with a kiss of love.</p>
+                            <div class="countdown" id="countdown-6" style="width: 100%; display: block; text-align: center;">Loading...</div>
+                        </div>
+                    </div>
+
+                    <!-- Valentine's Day - Center -->
+                    <div style="display: flex; justify-content: center; width: 100%;">
+                        <div class="milestone milestone-card glass-card valentines-day" data-index="7" data-date="2026-02-14" style="padding: 2.5rem; border-radius: 40px; width: 100%; max-width: 500px; text-align: center; border: 2px solid rgba(255, 51, 102, 0.4); transform: scale(1.1); margin-top: 2rem;">
+                            <div style="margin-bottom: 1.5rem;">
+                                <div style="font-size: 4.5rem; animation: pulse 2s infinite;">❤️</div>
+                                <span style="color: #ff3366; font-weight: 800; text-transform: uppercase; font-size: 1rem; letter-spacing: 4px; display: block; margin-top: 15px;">The Big Day • Feb 14</span>
+                            </div>
+                            <h3 style="font-family: 'Delius Swash Caps', cursive; font-size: 2.8rem; margin-bottom: 1rem; color: #fff;">Valentine's Day</h3>
+                            <p style="color: #ffe4e1; font-size: 1.15rem; font-style: italic; margin-bottom: 2rem; opacity: 0.95;">The ultimate celebration of connection and devotion.</p>
+                            <div class="countdown" id="countdown-7" style="font-size: 1.5rem; padding: 15px 25px; background: rgba(255, 51, 102, 0.25); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">Loading...</div>
+                            <p class="gift-message" style="margin-top: 2rem; font-size: 1rem; color: #ffd700;">🎁 A special gift awaits when the timer hits zero! 🎁</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Propose Day - Top middle on curve -->
-                <div class="milestone" data-index="1" data-date="2026-02-08" style="left: 50%; top: 15%;">
-                    <div class="pole"></div>
-                    <div class="marker">
-                        <div class="marker-icon">💍</div>
-                    </div>
-                    <div class="milestone-content">
-                        <h3>Propose Day</h3>
-                        <p>Feb 8</p>
-                        <div class="countdown" id="countdown-1">Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Chocolate Day - Top right before curve down -->
-                <div class="milestone" data-index="2" data-date="2026-02-09" style="left: 75%; top: 12%;">
-                    <div class="pole"></div>
-                    <div class="marker">
-                        <div class="marker-icon">🍫</div>
-                    </div>
-                    <div class="milestone-content">
-                        <h3>Chocolate Day</h3>
-                        <p>Feb 9</p>
-                        <div class="countdown" id="countdown-2">Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Teddy Day - Right side curving down -->
-                <div class="milestone" data-index="3" data-date="2026-02-10" style="left: 88%; top: 28%;">
-                    <div class="pole"></div>
-                    <div class="marker">
-                        <div class="marker-icon">🧸</div>
-                    </div>
-                    <div class="milestone-content">
-                        <h3>Teddy Day</h3>
-                        <p>Feb 10</p>
-                        <div class="countdown" id="countdown-3">Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Promise Day - Left side middle curve -->
-                <div class="milestone" data-index="4" data-date="2026-02-11" style="left: 12%; top: 52%;">
-                    <div class="pole"></div>
-                    <div class="marker">
-                        <div class="marker-icon">🤝</div>
-                    </div>
-                    <div class="milestone-content">
-                        <h3>Promise Day</h3>
-                        <p>Feb 11</p>
-                        <div class="countdown" id="countdown-4">Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Hug Day - Center moving right -->
-                <div class="milestone" data-index="5" data-date="2026-02-12" style="left: 55%; top: 65%;">
-                    <div class="pole"></div>
-                    <div class="marker">
-                        <div class="marker-icon">🤗</div>
-                    </div>
-                    <div class="milestone-content">
-                        <h3>Hug Day</h3>
-                        <p>Feb 12</p>
-                        <div class="countdown" id="countdown-5">Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Kiss Day - Right side lower -->
-                <div class="milestone" data-index="6" data-date="2026-02-13" style="left: 88%; top: 82%;">
-                    <div class="pole"></div>
-                    <div class="marker">
-                        <div class="marker-icon">💋</div>
-                    </div>
-                    <div class="milestone-content">
-                        <h3>Kiss Day</h3>
-                        <p>Feb 13</p>
-                        <div class="countdown" id="countdown-6">Loading...</div>
-                    </div>
-                </div>
-
-                <!-- Valentine's Day - Bottom center - SPECIAL & LARGEST -->
-                <div class="milestone valentines-day" data-index="7" data-date="2026-02-14" style="left: 50%; top: 92%;">
-                    <div class="pole"></div>
-                    <div class="marker">
-                        <div class="marker-icon">💖</div>
-                    </div>
-                    <div class="milestone-content">
-                        <h3>Valentine's Day</h3>
-                        <p>The Big Day!</p>
-                        <div class="countdown" id="countdown-7">Loading...</div>
-                        <p class="gift-message">🎁 A special gift awaits when the timer hits zero! 🎁</p>
-                    </div>
+                <div style="margin-top: 8rem; text-align: center; padding-bottom: 4rem;">
+                    <h2 style="font-family: 'Delius Swash Caps', cursive; font-size: 2.2rem; color: #fff;">Can't wait to celebrate with you</h2>
+                    <p style="font-size: 1.3rem; margin-top: 15px; color: #ffe4e1;">Each day is special with you ❤️</p>
                 </div>
             </div>
-            
-            <h2 style="margin-top: 30px;">Can't wait to celebrate with you</h2>
-            <p style="font-size: 1.2rem; margin-top: 10px;">Each day is special with you ❤️</p>
         </div>
 
     </div>
