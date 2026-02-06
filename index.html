@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Angel ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stars.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <div class="container" id="main-container">
+        
+        <!-- Intro 1 -->
+        <div id="intro-1">
+            <div class="image-container">
+                <img src="https://media1.tenor.com/m/4ELCHnNVSqAAAAAC/cute-cha-pri.gif" alt="Hi" style="width: 200px; height: 200px;">
+            </div>
+            <h1>Hey Bubbu...</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Can I ask you something?</p>
+            <div class="button-container">
+                <button class="btn" onclick="nextPhase('intro-1', 'intro-2')">Yes, ask away</button>
+            </div>
+        </div>
+
+        <!-- Intro 2 -->
+        <div id="intro-2" class="hidden">
+             <div class="image-container">
+                <img src="https://media.tenor.com/SFy5Za0DyMEAAAAi/erm-fingers.gif" alt="Nervous" style="width: 200px; height: 200px;">
+            </div>
+            <h1>Promise you won't get angry?</h1>
+            <div class="button-container">
+                <button class="btn" onclick="nextPhase('intro-2', 'ask-phase')">I promise</button>
+            </div>
+        </div>
+
+        <!-- Phase 1: The Ask -->
+        <div id="ask-phase" class="hidden">
+            <div class="image-container">
+                <img id="main-image" src="https://media1.tenor.com/m/d8jd56USUPIAAAAd/good-night-good-morning.gif" alt="Cute character" style="width: 250px; height: 250px;">
+            </div>
+            <h1 id="question">Angel, will you be my Valentine?</h1>
+            
+            <div class="button-container" id="button-container">
+                <button id="yes-btn">Yes</button>
+                <button id="no-btn">No</button>
+            </div>
+        </div>
+
+        <!-- Phase 2: The Envelope (Hidden initially) -->
+        <div id="envelope-phase" class="hidden">
+            <h1 style="margin-bottom: 20px;">For the panda who stole my heart...</h1>
+            <div class="envelope-wrapper">
+                <div class="envelope">
+                    <div class="front flap"></div>
+                    <div class="front pocket"></div>
+                    <div class="letter">
+                        <div class="text">
+                            <strong>To Angel,</strong><br>
+                            Click to Read...
+                        </div>
+                    </div>
+                    <div class="hearts">
+                        <div class="heart a1"></div>
+                        <div class="heart a2"></div>
+                        <div class="heart a3"></div>
+                    </div>
+                </div>
+            </div>
+            <button id="open-btn" style="margin-top: 30px; background-color: #ff3366; color: white;">Open Letter</button>
+        </div>
+
+        <!-- Phase 3: Full Letter View (Hidden initially) -->
+        <div id="letter-phase" class="hidden">
+            <div class="letter-container">
+                <div class="paper">
+                    <p class="greeting">My Dearest Bubbu,</p>
+                    <p class="body-text">
+                        From sharing crayons in 3rd grade to sharing secrets in 10th... it's been the most amazing journey, bestie. <br><br>
+                        You are my favorite Panda, my partner in crime, and the person who knows me better than anyone else. <br><br>
+                        I can't imagine this journey without you. You make every day brighter just by being in it. <br><br>
+                        So, here's to us, to our bond, and to being each other's favorite person forever. <br><br>
+                        You mean the absolute world to me.
+                    </p>
+                    <p class="signature">- Ritvik</p>
+                    <div class="button-container" style="margin-top: 2rem; justify-content: center;">
+                        <button class="btn" onclick="nextPhase('letter-phase', 'roadmap-phase'); showRoadmap()">See Our Future</button>
+                    </div>
+                </div>
+                
+                <div class="photo-collage">
+                    <h3 class="collage-title">Our Journey</h3>
+                    <div class="heart-collage">
+                        <!-- Actual photos from pics directory -->
+                        <img src="pics/image copy.png" class="heart-photo large p1">
+                        <img src="pics/image copy 7.png" class="heart-photo xlarge p2">
+                        <img src="pics/image copy 3.png" class="heart-photo xlarge p3">
+                        <img src="pics/image copy 4.png" class="heart-photo xlarge p4">
+                        <img src="pics/image copy 5.png" class="heart-photo large p5">
+                        <img src="pics/image.png" class="heart-photo xlarge p6">
+                        <img src="pics/image copy 6.png" class="heart-photo large p7">
+                        <img src="pics/image copy 2.png" class="heart-photo large p8" style="rotate: 270deg;">
+                        <img src="pics/image copy 8.png" class="heart-photo large p9">
+                        <img src="pics/image copy 9.png" class="heart-photo large p10">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 4: Valentine's Week Roadmap -->
+        <div id="roadmap-phase" class="hidden">
+            <h1 style="margin-bottom: 30px;">Valentine's Week Countdown</h1>
+            <div class="roadmap-container">
+                <!-- Exact replica of reference image flowing path -->
+                <svg class="roadmap-curve" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 80 120 
+                             C 200 100, 350 110, 500 120
+                             C 650 130, 800 110, 920 140
+                             
+                             C 970 170, 980 220, 960 280
+                             C 940 340, 880 380, 800 400
+                             C 720 420, 600 430, 480 420
+                             C 360 410, 240 400, 140 420
+                             C 80 430, 40 460, 30 510
+                             
+                             C 25 560, 60 600, 140 630
+                             C 240 670, 380 690, 540 700
+                             C 700 710, 860 700, 940 720
+                             
+                             C 980 730, 990 760, 960 790" 
+                          stroke="#8B0000" 
+                          stroke-width="6" 
+                          fill="none" 
+                          stroke-linecap="round"
+                          class="roadmap-path-line"/>
+                </svg>
+                
+                <!-- Rose Day - Top left on curve start -->
+                <div class="milestone" data-index="0" data-date="2026-02-07" style="left: 8%; top: 15%;">
+                    <div class="pole"></div>
+                    <div class="marker">
+                        <div class="marker-icon">🌹</div>
+                    </div>
+                    <div class="milestone-content">
+                        <h3>Rose Day</h3>
+                        <p>Feb 7</p>
+                        <div class="countdown" id="countdown-0">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Propose Day - Top middle on curve -->
+                <div class="milestone" data-index="1" data-date="2026-02-08" style="left: 50%; top: 15%;">
+                    <div class="pole"></div>
+                    <div class="marker">
+                        <div class="marker-icon">💍</div>
+                    </div>
+                    <div class="milestone-content">
+                        <h3>Propose Day</h3>
+                        <p>Feb 8</p>
+                        <div class="countdown" id="countdown-1">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Chocolate Day - Top right before curve down -->
+                <div class="milestone" data-index="2" data-date="2026-02-09" style="left: 75%; top: 12%;">
+                    <div class="pole"></div>
+                    <div class="marker">
+                        <div class="marker-icon">🍫</div>
+                    </div>
+                    <div class="milestone-content">
+                        <h3>Chocolate Day</h3>
+                        <p>Feb 9</p>
+                        <div class="countdown" id="countdown-2">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Teddy Day - Right side curving down -->
+                <div class="milestone" data-index="3" data-date="2026-02-10" style="left: 88%; top: 28%;">
+                    <div class="pole"></div>
+                    <div class="marker">
+                        <div class="marker-icon">🧸</div>
+                    </div>
+                    <div class="milestone-content">
+                        <h3>Teddy Day</h3>
+                        <p>Feb 10</p>
+                        <div class="countdown" id="countdown-3">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Promise Day - Left side middle curve -->
+                <div class="milestone" data-index="4" data-date="2026-02-11" style="left: 12%; top: 52%;">
+                    <div class="pole"></div>
+                    <div class="marker">
+                        <div class="marker-icon">🤝</div>
+                    </div>
+                    <div class="milestone-content">
+                        <h3>Promise Day</h3>
+                        <p>Feb 11</p>
+                        <div class="countdown" id="countdown-4">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Hug Day - Center moving right -->
+                <div class="milestone" data-index="5" data-date="2026-02-12" style="left: 55%; top: 65%;">
+                    <div class="pole"></div>
+                    <div class="marker">
+                        <div class="marker-icon">🤗</div>
+                    </div>
+                    <div class="milestone-content">
+                        <h3>Hug Day</h3>
+                        <p>Feb 12</p>
+                        <div class="countdown" id="countdown-5">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Kiss Day - Right side lower -->
+                <div class="milestone" data-index="6" data-date="2026-02-13" style="left: 88%; top: 82%;">
+                    <div class="pole"></div>
+                    <div class="marker">
+                        <div class="marker-icon">💋</div>
+                    </div>
+                    <div class="milestone-content">
+                        <h3>Kiss Day</h3>
+                        <p>Feb 13</p>
+                        <div class="countdown" id="countdown-6">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Valentine's Day - Bottom center - SPECIAL & LARGEST -->
+                <div class="milestone valentines-day" data-index="7" data-date="2026-02-14" style="left: 50%; top: 92%;">
+                    <div class="pole"></div>
+                    <div class="marker">
+                        <div class="marker-icon">💖</div>
+                    </div>
+                    <div class="milestone-content">
+                        <h3>Valentine's Day</h3>
+                        <p>The Big Day!</p>
+                        <div class="countdown" id="countdown-7">Loading...</div>
+                        <p class="gift-message">🎁 A special gift awaits when the timer hits zero! 🎁</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 style="margin-top: 30px;">Can't wait to celebrate with you</h2>
+            <p style="font-size: 1.2rem; margin-top: 10px;">Each day is special with you ❤️</p>
+        </div>
+
+    </div>
+
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
