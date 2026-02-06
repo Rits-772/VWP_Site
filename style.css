@@ -148,9 +148,15 @@ body {
 .image-container img {
   width: 200px;
   max-width: 100%;
+  border-radius: 30%;
   filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
   transition: transform 0.3s ease;
   animation: bounceIn 0.8s ease-out;
+}
+
+/* Target all GIFs globally */
+img[src*=".gif"] {
+    border-radius: 30%;
 }
 
 @keyframes bounceIn {
